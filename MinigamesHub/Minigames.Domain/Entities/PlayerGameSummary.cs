@@ -2,7 +2,13 @@
 
 public class PlayerGameSummary
 {
-    public int Id { get; set; }
-    public required string PlayerName { get; set; }
-    public PlayerGameSummary GameResult { get; private set; }
+    public HangmanGameResult hangmanGameResult { get; private set; }
+
+    public FormulaGameResult formulaGameResult { get; private set; }
+
+    public PlayerGameSummary()
+    {
+        hangmanGameResult = new HangmanGameResult();
+        formulaGameResult = new FormulaGameResult();
+    }
 }

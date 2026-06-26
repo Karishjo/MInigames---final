@@ -10,8 +10,8 @@ public class Player
     {
         if (string.IsNullOrWhiteSpace(playerName))
             throw new ArgumentException("Username cannot be blank");
-        playerName = playerName.Trim();
+
+        PlayerName = playerName.Trim();
         GameSummary = new PlayerGameSummary();
     }
-
 }

@@ -17,6 +17,7 @@ bld/
 # Visual Studio cache/options directory
 .vs/
 
+
 # Visual Studio Code
 .vscode/
 *.code-workspace
@@ -52,3 +53,8 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+
+bin/
+obj/
+*.user
