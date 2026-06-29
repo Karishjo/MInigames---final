@@ -12,7 +12,8 @@ public class  FormulaScoringStrategy : IGameScoringStrategy
         {
             GameResult.Won => 10,
             GameResult.CloseGuess => 5,
-            GameResult.lose => 0
+            GameResult.Lose => 0,
+            _ => throw new ArgumentOutOfRangeException(nameof(result), result, null)
         };
     }
 }

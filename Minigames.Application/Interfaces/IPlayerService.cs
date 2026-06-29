@@ -1,4 +1,4 @@
-using Minigames.Domain.Entities;
+using Minigames.Application.DTOs;
 
 namespace Minigames.Application.Interfaces
 {

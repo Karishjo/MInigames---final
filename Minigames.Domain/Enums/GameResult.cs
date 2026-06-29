@@ -2,7 +2,7 @@
 
 public enum GameResult
 {
-    Won = 10,
-    Lose = 0,
-    CloseGuess = 5
+    Won = 1,
+    CloseGuess = 2,
+    Lose = 0
 }
