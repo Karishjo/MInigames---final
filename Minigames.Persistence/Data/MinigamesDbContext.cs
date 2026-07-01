@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Minigames.Domain.Entities;
 
-namespace Minigames.Infrastructure.Data;
+namespace Minigames.Persistence.Data;
 
 public class MinigamesDbContext : DbContext
 {

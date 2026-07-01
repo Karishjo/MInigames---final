@@ -6,6 +6,11 @@ public class HangmanGameResultDto
     public int TimesPlayed { get; set; } = 0;
     public int TimesWon { get; set; } = 0;
 
+    public record HangmanAnswerResultDto(
+    string CurrentWord,
+    int RemainingAttempts,
+    string Message);
+
     public static implicit operator HangmanGameResultDto?(HangmanGameResult? v)
     {
         if (v == null)

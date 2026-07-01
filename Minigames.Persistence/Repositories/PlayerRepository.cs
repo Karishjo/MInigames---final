@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Minigames.Application.Interfaces;
 using Minigames.Domain.Entities;
-using Minigames.Infrastructure.Data;
+using Minigames.Persistence.Data;
 
 namespace Minigames.Persistence.Repositories
 {
@@ -19,9 +19,9 @@ namespace Minigames.Persistence.Repositories
             return await _context.Players.FirstOrDefaultAsync(p => p.PlayerName == playerName);
         }
 
-        public Task<IEnumerable<Player>> GetAllPlayersAsync()
+        public async Task<IEnumerable<Player>> GetAllPlayersAsync()
         {
-            return Task.FromResult(_context.Players.AsEnumerable());
+            return await _context.Players.ToListAsync();
         }
 
         public async Task AddPlayerAsync(Player player)

@@ -46,7 +46,7 @@ namespace Minigames.Application.Services
             var players = await _playerRepository.GetAllPlayersAsync();
 
             return players
-                .OrderByDescending(p => p.GameSummary.FormulaGameResult.BestDifference.HasValue)
+                .Where(p=> p.GameSummary.FormulaGameResult.BestDifference.HasValue)
                 .OrderBy(p=>p.GameSummary.FormulaGameResult.BestDifference)
                 .Take(3)
                 .Select(p => new LeaderboardDto(

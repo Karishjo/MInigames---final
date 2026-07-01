@@ -9,7 +9,8 @@ public class FormulaGameResult
     public void RecordGame(int difference)
     {
         TimesPlayed++;
-        if (BestDifference == null || difference < BestDifference)
+
+        if (TimesPlayed == 1 || difference < BestDifference)
         {
             BestDifference = difference;
         }

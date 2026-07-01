@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Minigames.Application.Interfaces;
 using Minigames.Application.Services;
-using Minigames.Infrastructure.Data;
+using Minigames.Persistence.Data;
 using Minigames.Persistence.Repositories;
 
 public partial class Program
