@@ -5,6 +5,7 @@ namespace Minigames.Application.Interfaces
     public interface IFormulaGameService
     {
         StartFormulaGameDto StartGame(string playerName);
-        Task<FormulaGameResultDto> SubmitAnswerAsync(SubmitFormulaAnswerDto _answer);
+        Task<FormulaAnswerResultDto> SubmitFormulaAnswerAsync(SubmitFormulaAnswerDto answer);
+
     }
 }

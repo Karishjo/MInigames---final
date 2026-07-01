@@ -12,7 +12,7 @@ namespace Minigames.Application.Services
             _playerRepository = playerRepository;
         }
 
-        public async Task<IEnumerable<LeaderboardDto>> GetLeaderboardsAsync()
+        public async Task<IEnumerable<LeaderboardDto>> GetLeaderboardAsync()
         {
             var players = await _playerRepository.GetAllPlayersAsync();
 
@@ -38,6 +38,21 @@ namespace Minigames.Application.Services
                     p.PlayerName,
                     p.GameSummary.HangmanGameResult.TimesWon,
                     "Wins"))
+                .ToList();
+        }
+
+        public async Task<List<LeaderboardDto>> GetFormulaLeaderboardAsync()
+        {
+            var players = await _playerRepository.GetAllPlayersAsync();
+
+            return players
+                .OrderByDescending(p => p.GameSummary.FormulaGameResult.BestDifference.HasValue)
+                .OrderBy(p=>p.GameSummary.FormulaGameResult.BestDifference)
+                .Take(3)
+                .Select(p => new LeaderboardDto(
+                    p.PlayerName,
+                    p.GameSummary.FormulaGameResult.BestDifference??0,
+                    "Best Difference"))
                 .ToList();
         }
     }

@@ -25,7 +25,7 @@ namespace Minigames.Api.Controllers
         [HttpPost("submit")]
         public async Task<ActionResult<FormulaAnswerResultDto>>Submit(SubmitFormulaAnswerDto _answer)
         {
-            return Ok(await _formulaGameService.SubmitAnswerAsync(_answer));
+            return Ok(await _formulaGameService.SubmitFormulaAnswerAsync(_answer));
         }
     }
 }

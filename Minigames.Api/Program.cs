@@ -2,7 +2,7 @@
 using Minigames.Application.Interfaces;
 using Minigames.Application.Services;
 using Minigames.Infrastructure.Data;
-using Minigames.Infrastructure.Repositories;
+using Minigames.Persistence.Repositories;
 
 public partial class Program
 {
@@ -16,8 +16,11 @@ public partial class Program
 
         builder.Services.AddSwaggerGen();
 
+
+        builder.Services.AddScoped<ILeaderboardService, LeaderboardService>();
         builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
         builder.Services.AddScoped<IPlayerService, PlayerService>();
+        builder.Services.AddScoped<IFormulaGameService, FormulaGameService>();
 
 
         builder.Services.AddDbContext<MinigamesDbContext>(options =>

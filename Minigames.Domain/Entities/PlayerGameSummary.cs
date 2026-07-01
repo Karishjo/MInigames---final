@@ -11,4 +11,6 @@ public class PlayerGameSummary
         HangmanGameResult = new HangmanGameResult();
         FormulaGameResult = new FormulaGameResult();
     }
+
+    public int TotalScore => HangmanGameResult.TimesWon * 10 + FormulaGameResult.TimesPlayed;
 }
