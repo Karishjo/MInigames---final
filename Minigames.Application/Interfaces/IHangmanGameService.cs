@@ -1,11 +1,9 @@
-﻿using static Minigames.Application.DTOs.HangmanGameResultDto;
+﻿using Minigames.Application.DTOs;
 
-namespace Minigames.Application.Interfaces
+namespace Minigames.Application.Interfaces;
+
+public interface IHangmanGameService
 {
-    public interface IHangmanGameService
-    {
-        StartHangmanGameDto StartGame(string playerName);
-
-        Task<HangmanAnswerResultDto> SubmitGuessAsync(SubmitHangmanGuessDto guess);
-    }
+    StartHangmanGameDto StartGame(string playerName);
+    HangmanAnswerResultDto SubmitGuess(SubmitHangmanGuessDto guess);
 }

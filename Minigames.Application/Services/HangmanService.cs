@@ -1,6 +1,6 @@
 ﻿using Minigames.Application.DTOs;
 using Minigames.Application.Interfaces;
-using Microsoft.AspNetCore.Hosting;
+using static Minigames.Application.DTOs.HangmanGameResultDto;
 
 namespace Minigames.Application.Services;
 
@@ -9,38 +9,47 @@ public class HangmanService : IHangmanGameService
     private const int MaxAttempts = 15;
 
     private readonly List<char> _guessedLetters = new();
-
     private int _remainingAttempts = MaxAttempts;
+    private string _word = "COMPUTER";
 
-    private readonly string _word;
-
-    public HangmanService(IWordProvider wordProvider)
-    {
-        _wordProvider = wordProvider;
-    }
     public StartHangmanGameDto StartGame(string playerName)
     {
         _guessedLetters.Clear();
         _remainingAttempts = MaxAttempts;
 
-        return new StartHangmanGameDto(playerName, GetCurrentWord(), _remainingAttempts);
+        return new StartHangmanGameDto(
+            playerName,
+            GetCurrentWord(),
+            _remainingAttempts,
+            _guessedLetters
+        );
     }
 
-    public Task<HangmanAnswerResultDto> SubmitGuessAsync(SubmitHangmanGuessDto guess)
+    public HangmanAnswerResultDto SubmitGuess(SubmitHangmanGuessDto guess)
     {
-        char letter = char.ToUpper(guess.Letter);
-
-        _guessedLetters.Add(letter);
-
-        if (!_wordProvider.Contains(letter))
+        if (guess.Letter == null)
         {
-            _remainingAttempts--;
+            return new HangmanAnswerResultDto(
+                GetCurrentWord(),
+                _remainingAttempts,
+                "Letter is required."
+            );
+        }
+
+        char letter = char.ToUpper(guess.Letter.Value);
+
+        if (!_guessedLetters.Contains(letter))
+        {
+            _guessedLetters.Add(letter);
+
+            if (!_word.Contains(letter))
+            {
+                _remainingAttempts--;
+            }
         }
 
         string currentWord = GetCurrentWord();
-
         bool isWon = !currentWord.Contains('_');
-
         bool isGameOver = isWon || _remainingAttempts <= 0;
 
         string message = isWon
@@ -51,16 +60,17 @@ public class HangmanService : IHangmanGameService
                     ? "Correct guess."
                     : "Wrong guess.";
 
-        return Task.FromResult(
-            new HangmanAnswerResultDto( currentWord, _remainingAttempts, _guessedLetters, message, isWon, isGameOver));
+        return new HangmanAnswerResultDto(
+            currentWord,
+            _remainingAttempts,
+            message
+        );
     }
 
     private string GetCurrentWord()
     {
-        return string.Join(" ",
-            _word.Select(c =>
-                _guessedLetters.Contains(c)
-                    ? c
-                    : '_'));
+        return string.Join(" ", _word.Select(c =>
+            _guessedLetters.Contains(c) ? c : '_'
+        ));
     }
 }
