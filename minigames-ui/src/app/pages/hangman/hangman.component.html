@@ -2,56 +2,102 @@
 
   <div class="card shadow p-4">
 
-    <h2>Hangman</h2>
+    <div class="game-rules">
 
-    <div *ngIf="!result && game">
+      <h3>Hangman Game</h3>
+      <div class="accordion mb-3" id="instructionsAccordion">
 
-      <h3 class="mt-4">
-        {{ game.currentWord }}
-      </h3>
+        <div class="accordion-item">
 
-      <p>
-        Remaining Attempts:
-        {{ game.remainingAttempts }}
-      </p>
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#instructions">
 
-      <p>
-        Guessed Letters:
-        {{ game.guessedLetters.join(', ') }}
-      </p>
+              Game Instructions
+            </button>
+          </h2>
 
-    </div>
+          <div id="instructions"
+               class="accordion-collapse collapse">
 
-    <div *ngIf="result">
+            <div class="accordion-body">
 
-      <h3>
-        {{ result.currentWord }}
-      </h3>
+              <h5>How to Play</h5>
 
-      <p>
-        Remaining Attempts:
-        {{ result.remainingAttempts }}
-      </p>
+              <p>
+                Test your vocabulary and guessing skills by uncovering the hidden word one letter at a time.
+                Guess carefully, because each incorrect letter costs you a life.
+              </p>
 
-      <p>
-        Guessed Letters:
-        {{ result.guessedLetters.join(', ') }}
-      </p>
+              <ul>
 
-      <div class="alert alert-info">
+                <li>Guess one letter at a time.</li>
+                <li>Incorrect guesses cost one life.</li>
+                <li>Reveal the word before all lives are lost.</li>
+                <li>Continue until you either reveal the entire word or run out of attempts.</li>
 
-        {{ result.message }}
+              </ul>
+
+            </div>
+
+            <div class="accordion-body">
+
+                <h5>Scoring</h5>
+
+                <ul>
+
+                  <li><strong>Win:</strong> Earn 1 point.</li>
+                  <li><strong>Loss:</strong> Earn 0 points.</li>
+                  <li>Try to solve the word before running out of attempts to maximize your success rate.</li>
+
+                </ul>
+
+            </div>
+
+            </div>
+
+          </div>
 
       </div>
 
-      <div *ngIf="result.isWon"
+    </div>
+
+    <div *ngIf="game" class="hangmangame mt-5">
+
+      <h4>
+        Word to guess:       {{ result?.currentWord || game.currentWord }}
+      </h4>
+
+      <div class="lives-container">
+        <h4>Lives  </h4>
+        <span *ngFor="let item of [].constructor(game.maxAttempts); let i = index"
+              class="life"
+              [class.active]="i < (result?.remainingAttempts ?? game.remainingAttempts)">
+        </span>
+
+      </div>
+
+      <h4>
+        Letters already guessed: {{ (result?.guessedLetters || game.guessedLetters).join(', ') }}
+      </h4>
+
+      <div *ngIf="result?.message"
+           class="alert alert-info">
+
+        {{ result?.message}}
+
+      </div>
+
+      <div *ngIf="result?.isWon"
            class="alert alert-success">
 
         You Won!
 
       </div>
 
-      <div *ngIf="result.isGameOver && !result.isWon"
+      <div *ngIf="result?.isGameOver && !result?.isWon"
            class="alert alert-danger">
 
         Game Over
@@ -60,34 +106,34 @@
 
     </div>
 
-    <div class="mt-3">
+    <div class=" submitanswers">
 
-      <input type="text"
-             maxlength="1"
-             class="form-control"
-             [(ngModel)]="letter"
-             placeholder="Enter letter">
+      <div class="mt-3">
 
+        <input type="text"
+               maxlength="2"
+               class="form-control"
+               [(ngModel)]="letter"
+               placeholder="Enter letter">
+
+      </div>
+
+      <div class="button-group">
+
+        <button class="btn btn-games"
+                (click)="submitGuess()">
+
+          Guess
+
+        </button>
+
+        <button class="btn btn-games"
+                (click)="goBack()">
+
+          Back
+
+        </button>
+        </div>
     </div>
-
-    <div class="mt-3">
-
-      <button class="btn btn-success me-2"
-              (click)="submitGuess()">
-
-        Guess
-
-      </button>
-
-      <button class="btn btn-secondary"
-              (click)="goBack()">
-
-        Back
-
-      </button>
-
-    </div>
-
   </div>
-
 </div>

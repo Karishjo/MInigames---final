@@ -1,0 +1,58 @@
+.lives-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.life {
+  width: 24px;
+  height: 24px;
+  border-radius: 80%;
+  border: 5px solid rgb(128, 128, 128, 0.3);
+  background-color: rgb(180, 186, 186, 0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+  .life::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .life.active::after {
+    background-color: rgb(16, 17, 17, 0.65);
+  }
+
+.hangmangame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+.submitanswers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.game-rules h3 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}

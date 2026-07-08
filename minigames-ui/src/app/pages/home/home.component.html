@@ -6,7 +6,7 @@
       Mini Games
     </h1>
 
-    <h3 class="mb-3">Leaderboard</h3>
+    <h3 class="text-center mb-3">Leaderboard</h3>
 
     <table class="table table-striped">
 
@@ -32,29 +32,29 @@
 
       </table>
 
-    <div class="d-grid gap-2 mt-3">
+    <div class="d-grid gap-3 mt-2">
 
-      <div *ngIf="!isSignedIn">
+      <div *ngIf="!isSignedIn" class="button-group mt-3">
 
-        <button class="btn btn-primary"
+        <button class="btn btn-games"
                 (click)="signIn()">
           Sign In
         </button>
 
-        <button class="btn btn-success"
+        <button class="btn btn-games"
                 (click)="createAccount()">
           Create Account
         </button>
 
       </div>
 
-      <div *ngIf="isSignedIn">
+      <div *ngIf="isSignedIn" class="d-grid gap-3">
 
-        <p>
+        <h3 class="text-center">
           Welcome {{ playerName }}
-        </p>
+        </h3>
 
-        <button class="btn btn-primary"
+        <button class="btn btn-games"
                 (click)="goToMenu()">
           Continue Playing
         </button>

@@ -1,0 +1,31 @@
+.card 
+{
+    justify-content: center;
+}
+
+.game-rules h3 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.formulagame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.submitanswers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+}

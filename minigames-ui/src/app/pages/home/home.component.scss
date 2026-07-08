@@ -1,0 +1,16 @@
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+  .button-group .btn {
+    min-width: 150px;
+  }
+
+
+.group-items .btn {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

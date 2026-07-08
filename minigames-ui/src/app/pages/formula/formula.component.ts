@@ -22,6 +22,8 @@ export class FormulaComponent {
 
   result?: FormulaAnswerResult;
 
+  errorMessage = '';
+
   playerName = '';
 
   constructor(
@@ -52,7 +54,14 @@ export class FormulaComponent {
       })
       .subscribe({
         next: response => {
+          console.log('SUCCESS:', response);
+
           this.result = response;
+          this.errorMessage = '';
+        },
+        error: err => {
+          this.result = undefined;
+          this.errorMessage = err.error?.message || 'An unexpected error occurred.';
         }
       });
   }

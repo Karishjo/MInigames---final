@@ -38,6 +38,8 @@ export class HangmanComponent {
       .startGame(this.playerName)
       .subscribe({
         next: (data: StartHangmanGame) => {
+          console.log('Game Data:', data);
+
           this.game = data;
         }
       });

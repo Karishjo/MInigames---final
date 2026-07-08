@@ -43,15 +43,23 @@ public class FormulaGameService : IFormulaGameService
 
             var availableNumbers = new List<int>(_numbersInFormula);
 
-            foreach (int number in numbersUsed)
-            {
-                if (!availableNumbers.Contains(number))
-                    throw new ArgumentException($"You cannot use numbers that are outside the provided list: {string.Join(",", _numbersInFormula)}");
+        foreach (var group in numbersUsed.GroupBy(n => n))
+        {
+            int availableCount = _numbersInFormula.Count(n => n == group.Key);
 
-                availableNumbers.Remove(number);
+            if (availableCount == 0)
+            {
+                throw new ArgumentException(
+                    $"Number {group.Key} is not in the provided list.");
             }
 
-            int result;
+            if (group.Count() > availableCount)
+            {
+                throw new ArgumentException(
+                    $"Number {group.Key} cannot be used more than once.");
+            }
+        }
+        int result;
 
             try
             {

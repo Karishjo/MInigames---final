@@ -2,11 +2,66 @@
 
   <div class="card shadow p-4">
 
-    <h2 class="mb-4">
-      Formula Game
-    </h2>
+    <div class="game-rules">
 
-    <div *ngIf="game">
+      <h3>Formula Game</h3>
+
+      <div class="accordion mb-3" id="instructionsAccordion">
+
+        <div class="accordion-item">
+
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#instructions">
+
+              Game Instructions
+            </button>
+          </h2>
+
+          <div id="instructions"
+               class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+              <h5>How to Play</h5>
+
+              <p>
+                Put your mathematical skills to the test by creating an expression that gets as close as possible to the target number.
+              </p>
+
+              <ul>
+                <li>Use the numbers provided at the start of the game.</li>
+                <li>Combine them using addition (+), subtraction (-), multiplication (*), and division (/).</li>
+                <li>You may use brackets to help build your calculation.</li>
+                <li>Each number can only be used once.</li>
+                <li>Your goal is to reach the target value or get as close to it as possible.</li>
+              </ul>
+
+            </div>
+
+            <div class="accordion-body">
+
+              <h4>Scoring</h4>
+
+              <ul>
+                <li><strong>Exact Match:</strong> Perfect score.</li>
+                <li><strong>Within 10 of the target:</strong> Great job, you're very close.</li>
+                <li><strong>More than 10 away:</strong> Nice try, keep practicing.</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div *ngIf="game" class="formulagame mt-5">
 
       <h4>
         Target: {{ game.target }}
@@ -15,7 +70,7 @@
       <div class="mb-4">
 
         <span *ngFor="let number of game.numbers"
-              class="badge bg-primary me-2">
+              class="badge rounded-pill bg-secondary me-2">
 
           {{ number }}
 
@@ -37,20 +92,24 @@
 
       </div>
 
-      <button class="btn btn-success me-2"
+      <button class="btn btn-games me-2"
               (click)="submit()">
 
         Submit
 
       </button>
 
-      <button class="btn btn-secondary"
+      <button class="btn btn-games"
               (click)="goMenu()">
 
         Back
 
       </button>
 
+    </div>
+
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
     </div>
 
     <div *ngIf="result"

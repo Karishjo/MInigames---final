@@ -6,17 +6,8 @@ namespace Minigames.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class FormulaController : ControllerBase
+public class FormulaController (IFormulaGameService _formulaGameService, IPlayerService _playerService) : ControllerBase
 {
-    private readonly IFormulaGameService _formulaGameService;
-    private readonly IPlayerService _playerService;
-
-    public FormulaController(IFormulaGameService formulaGameService, IPlayerService playerService)
-    {
-        _formulaGameService = formulaGameService;
-        _playerService = playerService;
-    }
-
     [HttpGet("start/{playerName}")]
     public ActionResult<StartFormulaGameDto> StartGame(string playerName) 
     {
@@ -27,8 +18,20 @@ public class FormulaController : ControllerBase
     [HttpPost("submit")]
     public async Task<ActionResult<FormulaAnswerResultDto>> Submit(SubmitFormulaAnswerDto _answer)
     {
-        var result = await _formulaGameService.SubmitFormulaAnswerAsync(_answer);
+        try
+        {
+            var result = await _formulaGameService.SubmitFormulaAnswerAsync(_answer);
 
-        return Ok(result);
+            return Ok(result);
+        }
+
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new
+            {
+                Message = ex.Message
+            });
+        }
     }
+
 }

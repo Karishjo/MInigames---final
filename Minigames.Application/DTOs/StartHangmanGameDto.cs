@@ -4,6 +4,7 @@
         string PlayerName,
         string CurrentWord,
         int RemainingAttempts,
-        IEnumerable<char> GuessedLetters
+        IEnumerable<char> GuessedLetters,
+        int MaxAttempts
     );
 }

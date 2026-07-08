@@ -3,4 +3,5 @@ export interface StartHangmanGame {
   currentWord: string;
   remainingAttempts: number;
   guessedLetters: string[];
+  maxAttempts: number;
 }

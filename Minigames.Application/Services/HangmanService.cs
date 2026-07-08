@@ -5,7 +5,7 @@ namespace Minigames.Application.Services;
 
 public class HangmanService : IHangmanGameService
 {
-    private const int MaxAttempts = 15;
+    private const int MaxAttempts = 10;
 
     private readonly IWordProvider _wordProvider;
     private readonly Dictionary<string, HangmanGameSession> _gameSessions = new();
@@ -31,7 +31,8 @@ public class HangmanService : IHangmanGameService
             playerName,
             GetCurrentWord(session),
             session.RemainingAttempts,
-            session.GuessedLetters
+            session.GuessedLetters,
+            MaxAttempts
         );
     }
 
