@@ -1,27 +1,156 @@
-# MinigamesUi
+# 🎮 Angular Mini Games
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+A collection of interactive browser games built with Angular and Bootstrap.
 
-## Development server
+The application features multiple games, score tracking, responsive layouts, and a customizable dark mode experience.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🧩 Formula Game
+- Generate and solve mathematical expressions
+- Multiple difficulty levels
+- Real-time answer validation
+- Score tracking
+- Game instructions accordion
+
+### 🎯 Hangman Game
+- Random word generation
+- Visual life tracker
+- Letter guessing system
+- Win/Loss detection
+- Score tracking
+
+### 🏆 Leaderboard
+- Stores high scores
+- Ranking display
+- Top player statistics
+
+### 🌙 Dark Mode
+- Global theme toggle
+- Consistent styling across all pages
+- Bootstrap component customization
+- Responsive color scheme
+
+---
+
+## Technologies Used
+
+- Angular
+- TypeScript
+- Bootstrap 5
+- HTML5
+- SCSS
+
+---
+
+## Project Structure
+
+```text
+src/
+├── app/
+│   ├── formula/
+│   ├── hangman/
+│   ├── leaderboard/
+│   ├── shared/
+│   ├── services/
+│   └── app-routing.module.ts
+│
+├── assets/
+├── environments/
+└── styles.scss
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+Navigate to the project folder:
+
+```bash
+cd angular-mini-games
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## Running the Application
+
+Start the development server:
+
+```bash
+ng serve
+```
+
+Open the application in your browser:
+
+```text
+http://localhost:4200
+```
+
+The application will automatically reload whenever source files are modified.
+
+---
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Create a production build:
 
-## Running unit tests
+```bash
+ng build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Build artifacts will be generated in:
 
-## Running end-to-end tests
+```text
+dist/
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Styling
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The application supports both Light Mode and Dark Mode using CSS variables.
+
+Example:
+
+```scss
+:root {
+  --page-bg: #faf9f0;
+  --page-text: #121435;
+}
+
+body.dark-mode {
+  --page-bg: #222831;
+  --page-text: #faf9f0;
+}
+```
+
+Theme changes are applied globally across all pages and game components.
+
+---
+
+## Future Improvements
+
+- Additional game modes
+- Player profiles
+- Player statistics dashboard
+- Sound effects and animations
+- Online leaderboard integration
+- Persistent user preferences and settings
+
+---
+
+## Author
+
+Developed by **KarishJo** as part of an Angular learning project.

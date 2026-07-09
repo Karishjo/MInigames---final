@@ -10,8 +10,8 @@
   width: 24px;
   height: 24px;
   border-radius: 80%;
-  border: 5px solid rgb(128, 128, 128, 0.3);
-  background-color: rgb(180, 186, 186, 0.30);
+  border: 1px solid var(--btn-border);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,7 @@
   }
 
   .life.active::after {
-    background-color: rgb(16, 17, 17, 0.65);
+    background-color: var(--btn-border);
   }
 
 .hangmangame {

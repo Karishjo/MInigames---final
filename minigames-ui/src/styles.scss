@@ -1,1 +1,131 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --btn-bg: #faf9f0;
+  --btn-border: #ff5722;
+  --btn-text: #ff5722;
+  --btn-hover-bg: #edebca;
+  --page-bg: #faf9f0;
+  --page-text: #121435;
+}
+
+body.dark-mode {
+  --btn-bg: #393e46;
+  --btn-border: #ff5722;
+  --btn-text: #ff5722;
+  --btn-hover-bg: #4a4f59;
+  --page-bg: #222831;
+  --page-text: #faf9f0;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--page-text);
+}
+
+body .accordion {
+  --bs-accordion-bg: var(--page-bg);
+  --bs-accordion-color: var(--page-text);
+  --bs-accordion-btn-bg: var(--page-bg);
+  --bs-accordion-active-bg: var(--page-bg);
+  --bs-accordion-active-color: var(--page-text);
+}
+
+  body.dark-mode .accordion {
+    --bs-accordion-bg: var(--page-bg);
+    --bs-accordion-color: var(--page-text);
+    --bs-accordion-btn-bg: var(--page-bg);
+    --bs-accordion-btn-color: var(--page-text);
+    --bs-accordion-active-bg: var(--page-bg);
+    --bs-accordion-active-color: var(--page-text);
+  }
+
+  body.dark-mode .accordion-button::after {
+    filter: brightness(0) invert(1);
+  }
+
+.card {
+  background-color: var(--page-bg);
+  color: var(--page-text);
+  position: center;
+  min-height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.btn-games {
+  background-color: var(--btn-bg);
+  border-color: var(--btn-border);
+  color: var(--btn-text);
+  border-radius: 10px;
+  width: 200px;
+  padding: 0.5rem 1.2rem;
+}
+
+  .btn-games:hover {
+    background-color: var(--btn-hover-bg);
+    border-color: var(--btn-text);
+  }
+
+.card .table {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.d-grid {
+  justify-content: center;
+}
+
+body.dark-mode table {
+  color: var(--page-text);
+}
+
+body.dark-mode th,
+body.dark-mode td {
+  background-color: var(--page-bg);
+  color: var(--page-text);
+}
+
+.table {
+  --bs-table-bg: var(--page-bg);
+  --bs-table-color: var(--page-text);
+  --bs-table-border-color: #edebca;
+}
+
+.form-control {
+  background-color: var(--page-bg);
+  color: var(--page-text);
+  border-color: var(--btn-border);
+}
+
+  .form-control:focus {
+    background-color: var(--page-bg);
+    color: var(--page-text);
+    border-color: var(--btn-border);
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 34, 0.25);
+  }
+
+
+.alert-success {
+  --bs-alert-bg: rgba(250, 249, 240, 0.85);
+}
+
+.alert-info {
+  --bs-alert-bg: rgba(250, 249, 240, 0.85);
+}
+
+.alert-danger {
+  --bs-alert-bg: rgba(250, 249, 240, 0.85);
+}
+
+body.dark-mode .alert-success {
+  --bs-alert-bg: rgba(34, 40, 49, 0.85);
+}
+
+body.dark-mode .alert-info {
+  --bs-alert-bg: rgba(34, 40, 49, 0.85);
+}
+
+body.dark-mode .alert-danger {
+  --bs-alert-bg: rgba(34, 40, 49, 0.85);
+}
+

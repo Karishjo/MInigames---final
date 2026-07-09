@@ -10,4 +10,20 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'minigames-ui';
+  darkMode = false;
+
+  toggleDarkMode() {
+
+    this.darkMode = !this.darkMode;
+
+    if (this.darkMode) {
+
+      document.body.classList.add('dark-mode');
+
+    } else {
+
+      document.body.classList.remove('dark-mode');
+
+    }
+  }
 }
