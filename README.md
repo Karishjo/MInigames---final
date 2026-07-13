@@ -1,4 +1,4 @@
-# 🎮 Angular Mini Games
+# Angular Mini Games
 
 A collection of interactive browser games built with Angular and Bootstrap.
 
@@ -8,26 +8,26 @@ The application features 2 games, score tracking, responsive layouts, and a cust
 
 ## Features
 
-### 🧩 Formula Game
+### Formula Game
 - Generate and solve mathematical expressions
 - Multiple difficulty levels
 - Real-time answer validation
 - Score tracking
 - Game instructions accordion
 
-### 🎯 Hangman Game
+### Hangman Game
 - Random word generation
 - Visual life tracker
 - Letter guessing system
 - Win/Loss detection
 - Score tracking
 
-### 🏆 Leaderboard
+### Leaderboard
 - Stores high scores
 - Ranking display
 - Top player statistics
 
-### 🌙 Dark Mode
+### Dark Mode
 - Global theme toggle
 - Consistent styling across all pages
 - Bootstrap component customization
